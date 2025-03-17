@@ -689,10 +689,10 @@ h6 {
     transform: rotate(360deg);
   }
 }
-
+/*
 /*--------------------------------------------------------------
 # Scroll Top Button
---------------------------------------------------------------*/
+--------------------------------------------------------------
 .scroll-top {
   position: fixed;
   visibility: hidden;
@@ -722,7 +722,7 @@ h6 {
   visibility: visible;
   opacity: 1;
 }
-
+*/
 /*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
 --------------------------------------------------------------*/
@@ -2043,3 +2043,25 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  background-color: #25D366;
+  color: white;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 32px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
+ }
+ 
+ .whatsapp-float:hover {
+  transform: scale(1.1);
+ }
