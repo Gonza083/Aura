@@ -58,7 +58,6 @@
           <li><a href="index.html#about">Sobre nosotros</a></li>
           <li><a href="index.html#services">Servicios</a></li>
           <li><a href="index.html#portfolio">Proyectos</a></li>
-          <li><a href="index.html#team">Equipo</a></li>
           <li><a href="index.html#contact">Contacto</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -90,45 +89,89 @@
     <section id="service-details" class="service-details section">
 
       <div class="container">
-
         <div class="row gy-4">
-
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
             <div class="services-list">
-              <a href="#" class="active">Domótica y automatización</a>
-              <a href="#">Iluminacion premiun</a>
-              <a href="#">Redes y conectividad</a>
-              <a href="#">Seguridad</a>
-              <a href="#">Planificacion electrica</a>
-              <a href="#">Cerraduras Digitales</a>
+              <a href="#" class="service-item active" data-service="domotica">Domótica y automatización</a>
+              <a href="#" class="service-item" data-service="iluminacion">Iluminación premium</a>
+              <a href="#" class="service-item" data-service="redes">Redes y conectividad</a>
+              <a href="#" class="service-item" data-service="seguridad">Seguridad</a>
+              <a href="#" class="service-item" data-service="planificacion">Planificación eléctrica</a>
+              <a href="#" class="service-item" data-service="cerraduras">Cerraduras digitales</a>
             </div>
-
-            <h4>Enim qui eos rerum in delectus</h4>
-            <p>Nam voluptatem quasi numquam quas fugiat ex temporibus quo est. Quia aut quam quod facere ut non occaecati ut aut. Nesciunt mollitia illum tempore corrupti sed eum reiciendis. Maxime modi rerum.</p>
           </div>
-
+      
           <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
-            <img src="assets/img/services.jpg" alt="" class="img-fluid services-img">
-            <h3>Temporibus et in vero dicta aut eius lidero plastis trand lined voluptas dolorem ut voluptas</h3>
-            <p>
-              Blanditiis voluptate odit ex error ea sed officiis deserunt. Cupiditate non consequatur et doloremque consequuntur. Accusantium labore reprehenderit error temporibus saepe perferendis fuga doloribus vero. Qui omnis quo sit. Dolorem architecto eum et quos deleniti officia qui.
-            </p>
-            <ul>
-              <li><i class="bi bi-check-circle"></i> <span>Aut eum totam accusantium voluptatem.</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>Assumenda et porro nisi nihil nesciunt voluptatibus.</span></li>
-              <li><i class="bi bi-check-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea</span></li>
-            </ul>
-            <p>
-              Est reprehenderit voluptatem necessitatibus asperiores neque sed ea illo. Deleniti quam sequi optio iste veniam repellat odit. Aut pariatur itaque nesciunt fuga.
-            </p>
-            <p>
-              Sunt rem odit accusantium omnis perspiciatis officia. Laboriosam aut consequuntur recusandae mollitia doloremque est architecto cupiditate ullam. Quia est ut occaecati fuga. Distinctio ex repellendus eveniet velit sint quia sapiente cumque. Et ipsa perferendis ut nihil. Laboriosam vel voluptates tenetur nostrum. Eaque iusto cupiditate et totam et quia dolorum in. Sunt molestiae ipsum at consequatur vero. Architecto ut pariatur autem ad non cumque nesciunt qui maxime. Sunt eum quia impedit dolore alias explicabo ea.
+            <img id="service-img" src="assets/img/services.jpg" alt="" class="img-fluid services-img">
+            <h3 id="service-title">Domótica y automatización</h3>
+            <p id="service-text">
+              Controla tu hogar desde cualquier lugar con la última tecnología en domótica. Iluminación, climatización y seguridad al alcance de tu mano.
             </p>
           </div>
-
         </div>
-
       </div>
+      
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const services = {
+            domotica: {
+              title: "Domótica y automatización",
+              text: "Controla tu hogar desde cualquier lugar con la última tecnología en domótica. Iluminación, climatización y seguridad al alcance de tu mano.",
+              img: "assets/img/domotica.jpg"
+            },
+            iluminacion: {
+              title: "Iluminación premium",
+              text: "Explora nuestras soluciones de iluminación premium, diseñadas para mejorar la estética y eficiencia de tu hogar.",
+              img: "assets/img/iluminacion.jpg"
+            },
+            redes: {
+              title: "Redes y conectividad",
+              text: "Instalamos redes robustas para garantizar una conectividad estable en toda tu casa o negocio.",
+              img: "assets/img/redes.jpg"
+            },
+            seguridad: {
+              title: "Seguridad",
+              text: "Protege tu hogar con nuestros sistemas de seguridad avanzados, incluyendo cámaras, sensores y alarmas.",
+              img: "assets/img/seguridad.jpg"
+            },
+            planificacion: {
+              title: "Planificación eléctrica",
+              text: "Realizamos diseños eléctricos eficientes y seguros, optimizados para el rendimiento de tu instalación.",
+              img: "assets/img/planificacion.jpg"
+            },
+            cerraduras: {
+              title: "Cerraduras digitales",
+              text: "Accede a tu hogar de manera segura con cerraduras digitales modernas y confiables.",
+              img: "assets/img/cerraduras.jpg"
+            }
+          };
+      
+          const serviceItems = document.querySelectorAll(".service-item");
+          const titleElement = document.getElementById("service-title");
+          const textElement = document.getElementById("service-text");
+          const imgElement = document.getElementById("service-img");
+      
+          serviceItems.forEach(item => {
+            item.addEventListener("click", function (e) {
+              e.preventDefault();
+      
+              // Quitar la clase "active" de todos los elementos
+              serviceItems.forEach(el => el.classList.remove("active"));
+              // Agregar la clase "active" al elemento clickeado
+              this.classList.add("active");
+      
+              // Obtener el identificador del servicio
+              const serviceKey = this.getAttribute("data-service");
+              const serviceData = services[serviceKey];
+      
+              // Actualizar el contenido
+              titleElement.textContent = serviceData.title;
+              textElement.textContent = serviceData.text;
+              imgElement.src = serviceData.img;
+            });
+          });
+        });
+      </script>
 
     </section><!-- /Service Details Section -->
 
